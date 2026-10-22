@@ -3,10 +3,10 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowDownRight, ArrowUpRight, Binary, Braces, Cpu, Github, Menu, MoveUpRight, Sparkles, X, Zap } from 'lucide-react';
 
 const members = [
-  { id:'01', name:'ARYAN', role:'TEAM LEAD', specialty:'Strategy · Leadership', symbol:'A', className:'aryan', tagline:'The one who sees the whole board.' },
-  { id:'02', name:'SAGAR', role:'TECH LEAD', specialty:'Full-Stack · AI', symbol:'S', className:'sagar', tagline:'Turning ambitious ideas into working systems.' },
-  { id:'03', name:'AYUSHI', role:'DESIGN & EXPERIENCE', specialty:'UI · Product Thinking', symbol:'A', className:'ayushi', tagline:'Making complex things feel effortless.' },
-  { id:'04', name:'ABHISHEK', role:'BUILD & SUPPORT', specialty:'Execution · Team Support', symbol:'B', className:'abhishek', tagline:'Making sure the details land.' },
+  { id:'01', name:'ARYAN', role:'TEAM LEAD', specialty:'Interface Design · Screen Layouts · Usability', symbol:'A', image:'/team/aryan.jpg', className:'aryan', tagline:'The face of the mission.' },
+  { id:'02', name:'SAGAR PATHAK', role:'TECH LEAD', specialty:'Full-Stack · AI', symbol:'S', image:'/team/sagar.jpg', className:'sagar', tagline:'The mind behind the mission.' },
+  { id:'03', name:'AYUSHI', role:'RESEARCH · PRODUCT · PRESENTATION', specialty:'Problem Research · Product Strategy · Pitch', symbol:'A', image:'/team/ayushi.jpg', className:'ayushi', tagline:'The story behind the solution.' },
+  { id:'04', name:'ABHISHEK', role:'QA · DATA · DOCUMENTATION', specialty:'Testing · Bug Detection · Demo Reliability', symbol:'B', image:'/team/abhishek.jpg', className:'abhishek', tagline:'The last line of defense.' },
 ];
 const reveal = { hidden:{opacity:0,y:28}, visible:{opacity:1,y:0,transition:{duration:.7,ease:[.22,1,.36,1]}} };
 
@@ -17,7 +17,7 @@ function Poster({member,index}) {
       <div className="orbit orbit-one"/><div className="orbit orbit-two"/>
       <div className="art-grid"/>
       <span className="art-index">{member.id}</span>
-      <div className="portrait-monogram">{member.symbol}<span className="crosshair">+</span></div>
+      <div className="portrait-monogram" aria-hidden="true">{member.symbol}<span className="crosshair">+</span></div>
       <span className="vertical-code">BINARY / NINJAS / 2026</span>
       <div className="poster-stamp">FIELD<br/>READY</div>
     </div>
@@ -38,7 +38,7 @@ export default function App(){
   return <div className="site-shell">
     <div className="noise" aria-hidden="true"/>
     <header className="nav">
-      <a className="brand" href="#top" aria-label="Binary Ninjas home"><span className="brand-mark"><Binary size={23}/></span><span>BINARY<span className="brand-light">NINJAS</span><small>SAARTHI’26 / TEAM 04</small></span></a>
+      <a className="brand" href="#top" aria-label="Binary Ninjas home"><img className="brand-logo" src="/team/logo.jpg" alt="Binary Ninjas logo"/><span>BINARY<span className="brand-light">NINJAS</span><small>SAARTHI’26 / TEAM 04</small></span></a>
       <nav className={menuOpen?'nav-links open':'nav-links'}>
         <button onClick={()=>go('team')}>THE SQUAD <span>01</span></button>
         <button onClick={()=>go('mission')}>THE MISSION <span>02</span></button>
@@ -74,15 +74,15 @@ export default function App(){
       </section>
 
       <section className="mission section-pad" id="mission">
-        <div className="mission-visual"><div className="mission-lines"/><div className="mission-big">01<span>→</span><br/>∞</div><div className="mission-tag">IDEA → IMPACT</div><div className="mission-corner">SYSTEM STATUS<br/><span>READY TO BUILD</span></div></div>
+        <div className="mission-visual"><img className="mission-logo" src="/team/logo.jpg" alt="Binary Ninjas logo" loading="lazy"/><div className="mission-lines"/><div className="mission-big">01<span>→</span><br/>∞</div><div className="mission-tag">IDEA → IMPACT</div><div className="mission-corner">SYSTEM STATUS<br/><span>READY TO BUILD</span></div></div>
         <div className="mission-copy"><div className="eyebrow"><span className="section-number">02 /</span> WHY WE SHOW UP</div><h2>NOT HERE TO<br/>JUST <span className="accent-word">PARTICIPATE.</span></h2><p>Hackathons are where curiosity meets a deadline. We bring product thinking, engineering, design, and relentless iteration to turn a real problem into something people can actually use.</p><div className="principles"><div><span>01</span><div><strong>QUESTION EVERYTHING</strong><p>Start with the problem, not the hype.</p></div><Braces size={20}/></div><div><span>02</span><div><strong>BUILD WITH INTENT</strong><p>Useful beats complicated. Every time.</p></div><Cpu size={20}/></div><div><span>03</span><div><strong>SHIP AS A TEAM</strong><p>Different skills. One shared outcome.</p></div><Zap size={20}/></div></div></div>
       </section>
 
       <section className="closing section-pad"><div className="closing-top"><span className="eyebrow"><span className="live-dot"/> CURRENTLY IN BUILD MODE</span><span className="closing-coordinates">BN / 26 — 001</span></div><h2>THE NEXT BIG<br/>THING STARTS<br/><span className="accent-word">WITH A QUESTION.</span></h2><button className="closing-button" onClick={()=>go('team')}>GET TO KNOW THE NINJAS <MoveUpRight size={18}/></button><div className="closing-decoration">?</div></section>
     </main>
 
-    <footer className="footer" id="footer"><a className="brand" href="#top"><span className="brand-mark"><Binary size={23}/></span><span>BINARY<span className="brand-light">NINJAS</span><small>BUILT ON CURIOSITY.</small></span></a><div className="footer-center">MADE OF IDEAS. POWERED BY PEOPLE.</div><a className="footer-link" href="https://github.com/Sagar264offici/BinaryNinjas" target="_blank" rel="noreferrer">GITHUB <Github size={15}/></a><span className="copyright">© 2026 / BN</span></footer>
+    <footer className="footer" id="footer"><a className="brand" href="#top"><img className="brand-logo" src="/team/logo.jpg" alt="Binary Ninjas logo"/><span>BINARY<span className="brand-light">NINJAS</span><small>BUILT ON CURIOSITY.</small></span></a><div className="footer-center">MADE OF IDEAS. POWERED BY PEOPLE.</div><a className="footer-link" href="https://github.com/Sagar264offici/BinaryNinjas" target="_blank" rel="noreferrer">GITHUB <Github size={15}/></a><span className="copyright">© 2026 / BN</span></footer>
 
-    {active && <div className="modal-backdrop" onClick={()=>setActive(null)}><motion.div className={'member-modal '+active.className} initial={{opacity:0,y:18,scale:.98}} animate={{opacity:1,y:0,scale:1}} onClick={e=>e.stopPropagation()}><button className="modal-close" onClick={()=>setActive(null)} aria-label="Close"><X/></button><span className="eyebrow">PERSONNEL FILE / {active.id}</span><div className="modal-initial">{active.symbol}</div><span className="poster-role">{active.role}</span><h2>{active.name}</h2><p>{active.tagline}</p><div className="modal-specialty">{active.specialty}</div><span className="modal-foot">BINARY NINJAS / SAARTHI’26</span></motion.div></div>}
+    {active && <div className="modal-backdrop" onClick={()=>setActive(null)}><motion.div className={'member-modal '+active.className} initial={{opacity:0,y:18,scale:.98}} animate={{opacity:1,y:0,scale:1}} onClick={e=>e.stopPropagation()}><button className="modal-close" onClick={()=>setActive(null)} aria-label="Close"><X/></button><span className="eyebrow">PERSONNEL FILE / {active.id}</span><img className="modal-photo" src={active.image} alt={active.name + " portrait"}/><span className="poster-role">{active.role}</span><h2>{active.name}</h2><p>{active.tagline}</p><div className="modal-specialty">{active.specialty}</div><span className="modal-foot">BINARY NINJAS / SAARTHI’26</span></motion.div></div>}
   </div>;
 }
